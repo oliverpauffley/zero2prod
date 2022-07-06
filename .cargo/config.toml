@@ -1,0 +1,4 @@
+# Install the lld linker for faster compilation
+# - Arch `sudo pacman -S lld clang`
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
