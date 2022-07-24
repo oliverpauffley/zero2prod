@@ -28,6 +28,9 @@ services:
       - key: APP_DATABASE__PORT
         scope: RUN_TIME
         value: ${newsletter.PORT}
+      - key: APP_DATABASE__DATABASE_NAME
+        scope: RUN_TIME
+        value: ${newsletter.DATABASE}
 databases:
   - engine: PG
     name: newsletter
