@@ -1,3 +1,14 @@
+use std::net::TcpListener;
+
+use once_cell::sync::Lazy;
+use sqlx::{Connection, Executor, PgConnection, PgPool};
+use uuid::Uuid;
+use zero2prod::{
+    configuration::{get_configuration, DatabaseSettings},
+    email_client::EmailClient,
+    telemetry::{get_subscriber, init_subscriber},
+};
+
 // Ensure that the `tracing` stack is only initialized once using `once_cell`
 static TRACING: Lazy<()> = Lazy::new(|| {
     let default_filter_level = "info".to_string();
